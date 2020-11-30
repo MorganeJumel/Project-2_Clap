@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}CLAP!{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    {% block stylesheet %}{% endblock %}
+    <link rel="icon" href="/assets/images/clapper.png">
+    <style>
+      @media ( max-width: 768px){
+        .header {
+          display:none;
+        }
+      } 
+      @media ( max-width: 480px) {
+       .header {
+          display:none;
+        }
+      } 
+    </style>  
+</head>
+<body>
+    <header class="header">
+       <div class="header" id="myHeader">
+          <a href="/"><img src="/assets/images/clapper.png" alt="claplogo" height="50px" width="50px"/> Clap!</a>
+       </div>
+    </header>
+<div class="navbar">
+    <h1>Catégories</h1>    
+      <a href="/references?category=1" class="btn">Action / Aventure</a>
+      <a href="/references?category=2" class="btn">Animation</a>
+      <a href="/references?category=3" class="btn">Comédie</a>
+      <a href="/references?category=4" class="btn">Horreur</a>
+      <a href="/references?category=5" class="btn">Sci-Fi / Fantastique</a>
+      <a href="/references?category=6" class="btn">Auteur</a>
+  </div>
+{% block content %}{% endblock %}
+  <footer>
+    <h2 class="equipeDEV">L'équipe de développement</h2>
+    <div class="creators">
+      <div class="creator-block">
+        <div class="creator-name"> Morgane Jumel</div>
+        <div class="creator-logos">
+          <a href="https://github.com/MorganeJumel" target="_blank"><img class="gitLogoFooter" src="/assets/images/github.png" alt ="GitHub Morgane Jumel"></a>
+          <a href="https://www.linkedin.com/in/morgane-jumel/" target="_blank"><img class="linkedinLogo" src="/assets/images/linkedin.png" alt="Linked In Morgane Jumel"></a>
+        </div>
+      </div>
+      <div class="creator-block">
+        <div class="creator-name">Adeline Beaufils</div>
+        <div class="creator-logos">
+          <a href="https://github.com/Adeline-BEAUFILS" target="_blank"><img class="gitLogoFooter" src="/assets/images/github.png" alt ="GitHub Adeline Beaufils " ></a>
+          <a href="https://www.linkedin.com/in/adeline-beaufils-6382b61b8/" target="_blank"><img class="linkedinLogo" src="/assets/images/linkedin.png" alt="LinkedIn Adeline Beaufils" ></a>
+        </div>
+      </div>
+      <div class="creator-block">
+        <div class="creator-name">Bruno Lagasse</div>
+        <div class="creator-logos">
+          <a href="https://github.com/BrunoLagasse" target="_blank"><img class="gitLogoFooter" src="/assets/images/github.png" alt ="GitHub Bruno Lagasse"></a>
+          <a href="https://www.linkedin.com/in/bruno-lagasse-8a699716a/" target="_blank"><img class="linkedinLogo" src="/assets/images/linkedin.png" alt="LinkedIn Bruno Lagasse"></a>
+        </div>
+      </div>
+      <div class="creator-block">
+        <div class="creator-name">Victor Bijot</div>
+        <div class="creator-logos">
+          <a href="https://github.com/BijotVictor" target="_blank"><img class="gitLogoFooter" src="/assets/images/github.png" alt="GitHub Victor Bijot"></a>
+          <a href="https://www.linkedin.com/in/victor-bijot/" target="_blank"><img class="linkedinLogo" src="/assets/images/linkedin.png" alt="LinkedIn Victor Bijot"></a>
+        </div>
+      </div>
+    </div>
+     <div class="footer-copyright">
+        <span>© 2020 Promotion Horizon | Wild Code School Reims - Tous droits réservés</span>
+     </div>
+  </footer>
+  {% block script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class="ajout-text">Ajoutez votre référence ! </h1>
+    <form class="add" action="" method="post" enctype="multipart/form-data">
+        <div>
+            <label class="add-form" for="imageUpload">Sélectionnez votre image:</label>
+            <input required type="file" name="imageUpload" id="imageUpload">
+            <label class="add-form-title" for="movie_name">Titre du film:</label>
+            <input required type="text" id="movie_name" name="movie_name">
+            <select required name="category_id" id="category_id">
+                <option value="">A quel genre appartient ce film ?</option>
+                <option value="1">Action/Aventure</option>
+                <option value="2">Animation</option>
+                <option value="3">Comédie</option>
+                <option value="4">Horreur</option>
+                <option value="5">Science-Fiction/Fantastique</option>
+                <option value="6">Film d'auteur</option>
+            </select>
+            <button class="add-submit" type="submit"name="submit">J'ajoute ma référence</button>
+        </div>
+    </form>
+{% endblock %}

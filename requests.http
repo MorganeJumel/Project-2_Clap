@@ -1,0 +1,4 @@
+POST http://localhost:8000/references?category=1
+Content-Type: application/x-www-form-urlencoded
+
+movie_name=rambo&reference_id=1

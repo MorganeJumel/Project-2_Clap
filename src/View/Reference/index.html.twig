@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+
+ {% block stylesheet %}
+    {# <style>
+      .gotoform {
+        position: relative;
+        float: right;
+      }
+      .regle {
+        position: absolute;
+        float: left;
+      }
+    </style> #}
+ {% endblock %}
+
+{% block script %}
+  <script>
+    function msg() {
+      alert("Bonjour à vous et bienvenue dans Clap ! \n Les règles du jeu sont simples, cliquez sur une catégorie de film, vous arrivez sur une page contenant différentes références de films en images. \n Ecrivez en-dessous de chaque image le titre du film correspondant, en débutant toujours par une majuscule. \n Suivant votre progression, terminez une catégorie ou changez-en grâce au menu déroulant : Horreur, Action/Aventure, Auteur, Comédie, Science-Fiction et Animation. \n A l’issue d’une partie, vous pouvez également ajouter vos propres références de films grâce au formulaire ! \n D’ailleurs, commencez dès maintenant en choisissant la première catégorie. \n C’est parti !!");
+    }
+  </script>
+{% endblock %}
+
+
+{% block content %}
+<div class="topbuttons">
+  <button class="regle" type="button" onclick="msg()">Règle du jeu</button>
+  <form>
+    <button formaction="/references/add" class="gotoform"> Ajoutez votre référence ! </button>
+  </form>
+</div>
+
+  <div class="container">
+    {% for reference in references %}
+      <form action="/references?category={{ category }}" method="post" class="Form">
+        <div class="IMG">
+          <img class="img" src="/assets/images/{{ reference.image_upload }}" alt="référence">
+            <label for="movie_name">Saisissez le nom de ce film :</label>
+            <input type="text" id="movie_name" name="movie_name">
+            <input class="submit" type="submit" value="VALIDER">
+            <input type="hidden" name="reference_id" value="{{ reference.id }}">
+        </div>
+      </form>
+      {% else %}
+        <div class="bravo">
+          <p>Bravo, quelle culture ! <br>
+            N'hésitez pas à tester vos connaissances dans d'autres catégories et à soumettre vos propres références. <br>
+            Merci d'avoir joué !
+          </p>
+        </div>
+    {% endfor %}
+
+      <div class="score">
+        <p>Votre score: {{ score }}</p>
+      </div>
+  </div>
+
+  {% if message == 'ok' %}
+    <script>
+    $(function() {
+	    toastr.success('Bonne réponse !')
+    });
+    </script>
+  {% elseif message == 'ko' %}
+    <script>
+    $(function() {
+	    toastr.error('Mauvaise réponse :(')
+    });
+    </script>
+  {% endif %}
+{% endblock %}

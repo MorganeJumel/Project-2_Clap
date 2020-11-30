@@ -1,0 +1,46 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+  <style> 
+    .navbar {
+      display: none;
+    }
+
+    /* body responsive Mobile et tablette */
+
+    @media ( max-width: 480px) {
+      body {
+        color: white;
+        font-family: Verdana, sans-serif;
+        font-size: 100%;
+        background-image: url(/assets/images/cinemabackground.jpeg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: black;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  </style>
+{% endblock %}
+{% block script %}
+  <script>
+    function msg() {
+      alert("Bonjour à vous et bienvenue dans Clap ! \n Les règles du jeu sont simples, cliquez sur une catégorie de film, vous arrivez sur une page contenant différentes références de films en images. \n Ecrivez en-dessous de chaque image le titre du film correspondant, en débutant toujours par une majuscule. \n Suivant votre progression, terminez une catégorie ou changez-en grâce au menu déroulant : Horreur, Action/Aventure, Auteur, Comédie, Science-Fiction et Animation. \n A l’issue d’une partie, vous pouvez également ajouter vos propres références de films grâce au formulaire ! \n D’ailleurs, commencez dès maintenant en choisissant la première catégorie. \n C’est parti !!");
+    }
+  </script>
+{% endblock %}
+
+{% block content %}
+  <body>
+      <button class="regle" type="button" onclick="msg()">Règle du jeu</button>
+      <ul class="grid">
+        {% for category in categories %}
+          <li><a href="/references?category={{ category.id }}">{{ category.category_name }}</a></li>
+            {% else %}
+          <li>Nothing to display</li>
+        {% endfor %}
+      </ul>
+  </body>
+{% endblock %}
